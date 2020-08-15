@@ -1,3 +1,4 @@
+import { FETCH_PROFILE_SUCCEEDED } from '../actions/Index'
 const initialData = {
     name: 'jjoo',
     email: 'hoge@example.com',
@@ -6,9 +7,14 @@ const initialData = {
 }
 
 
-
-const profile = (state = initialData,action) => {
-    return state
+const profile = (state = initialData, action) => {
+  debugger
+  switch (action.type) {
+    case FETCH_PROFILE_SUCCEEDED:
+      return { ...state, name: action.payload.name, email: '' }
+    default:
+      return state
+  }
 }
 
 export default profile

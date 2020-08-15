@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from 'axios';
 import styled from "styled-components";
 import { colors } from "../../styles/Variables";
 
@@ -28,7 +29,11 @@ const Text = styled.p`
   font-size: 1.2rem;
 `;
 
-const Profile = ({ user }) => {
+const Profile = ({ user, fetchProfileAsync }) => {
+  useEffect(() => {
+    fetchProfileAsync({ hoge: 'hello' })
+  }, [])
+
   return (
     <Container>
       <h1>Profile</h1>
