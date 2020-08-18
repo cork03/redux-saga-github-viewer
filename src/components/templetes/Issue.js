@@ -10,13 +10,6 @@ import List from "../organisms/List";
 
 Modal.setAppElement("#root");
 
-const customStyles = {
-  content: {
-    width: "60%",
-    margin: "auto",
-  },
-};
-
 const Container = styled.div`
   padding: 32px;
 `;
@@ -108,7 +101,6 @@ const Issue = ({ data, removeList, addList, editList }) => {
       removeList({ id: item });
     });
   };
-  console.log(lists());
   return (
     <Container>
       <SerchTop>

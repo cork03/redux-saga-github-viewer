@@ -34,7 +34,7 @@ const menus = [
   { to: "/pullRequest", text: "Pull Request" },
 ];
 
-const Lists = ({ open }) => {
+const Item = ({ open }) => {
   let el;
   if (open) {
     el = (
@@ -54,4 +54,4 @@ const Lists = ({ open }) => {
   return <div>{el}</div>;
 };
 
-export default Lists;
+export default Item;

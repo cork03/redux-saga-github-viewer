@@ -2,10 +2,10 @@ import React from "react";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import styled from "styled-components";
 import Header from "./components/organisms/Header";
-import Profile from "./containers/Profile";
-import Issue from "./containers/Issue";
-import PullRequest from "./components/templetes/PullRequest";
-import TopPage from "./components/templetes/Index";
+import PullRequest from "./pages/PullRequest";
+import TopPage from "./pages/Index";
+import Issue from "./pages/Issue";
+import Profile from "./pages/Profile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Container = styled.div``;

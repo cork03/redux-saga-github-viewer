@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Lists from "./Lists";
+import Item from "./Item";
 
 const Container = styled.div``;
 const Bar = styled.i`
@@ -19,7 +19,7 @@ const Menu = () => {
   return (
     <Container>
       <Bar className="fa fa-bars" onClick={Open}></Bar>
-      <Lists open={open} />
+      <Item open={open} />
     </Container>
   );
 };

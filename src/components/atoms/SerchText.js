@@ -16,14 +16,14 @@ const SerchText = ({ search, setSearch }) => {
     setSearch(e.target.value);
   };
   return (
-    <React.Fragment>
+    <>
       <Input
         type="input"
         placeholder="issue名で検索"
         value={search}
         onChange={onChange}
       ></Input>
-    </React.Fragment>
+    </>
   );
 };
 
