@@ -2,7 +2,7 @@ import React from "react";
 import dayjs from "dayjs";
 
 const List = ({ list, onClick, check, onCheck }) => {
-  const { title, status, creator } = list;
+  const { title, state, user, created_at } = list;
   const _onClick = (list) => {
     onClick && onClick(list);
   };
@@ -10,15 +10,20 @@ const List = ({ list, onClick, check, onCheck }) => {
     e.stopPropagation();
     onCheck && onCheck(list.id);
   };
+  const Link = (e) => e.stopPropagation();
   return (
     <tr onClick={_onClick}>
       <td>
         <input checked={check} onClick={_onCheck} type="checkbox"></input>
       </td>
-      <td>{title}</td>
-      <td>{status}</td>
-      <td>{creator}</td>
-      <td>{dayjs().format("MM-DD-YYYY")}</td>
+      <td>
+        <a onClick={Link} href={list.html_url}>
+          {title}
+        </a>
+      </td>
+      <td>{state}</td>
+      <td>{user.login}</td>
+      <td>{created_at}</td>
       <td>{dayjs().format("MM-DD-YYYY")}</td>
     </tr>
   );

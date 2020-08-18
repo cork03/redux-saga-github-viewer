@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ButtonGreen, ButtonRed } from "../atoms/Button";
 import SerchText from "../atoms/SerchText";
@@ -39,7 +39,10 @@ const Table = styled.table`
   }
 `;
 
-const Issue = ({ data, removeList, addList, editList }) => {
+const Issue = ({ data, removeList, addList, editList, fetchIssue }) => {
+  useEffect(() => {
+    fetchIssue();
+  });
   const [open, setOpen] = useState(false);
   const [edit, setEdit] = useState(false);
   const [search, setSearch] = useState("");

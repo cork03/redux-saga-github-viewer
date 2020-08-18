@@ -64,8 +64,8 @@ const StatusLabel = styled.label`
 `;
 const EditContent = ({ closeModal, issue, editList }) => {
   const [title, setTitle] = useState(issue.title);
-  const [content, setContent] = useState(issue.content);
-  const [status, setStatus] = useState(issue.status);
+  const [content, setContent] = useState(issue.body);
+  const [status, setStatus] = useState(issue.state);
   const [error, setError] = useState("");
   const changeText = (e) => {
     setTitle(e.target.value);

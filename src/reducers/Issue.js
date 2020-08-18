@@ -1,28 +1,11 @@
-import { ADD_LIST, EDIT_LIST, REMOVE_LIST } from "../actions/Index";
+import {
+  ADD_LIST,
+  EDIT_LIST,
+  REMOVE_LIST,
+  FETCH_ISSUE_SUCCEEDED,
+} from "../actions/Index";
 
-const initialData = {
-  1: {
-    id: 1,
-    title: "A bug in Top Page",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    status: "Open",
-    creator: "",
-  },
-  2: {
-    id: 2,
-    title: "A problem of performance in Top Page",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    status: "Open",
-    creator: "",
-  },
-  3: {
-    id: 3,
-    title: "fix layout",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    status: "Close",
-    creator: "",
-  },
-};
+const initialData = {};
 
 const initialState = {
   index: Object.values(initialData).length,
@@ -53,6 +36,9 @@ const issue = (state = initialState, action) => {
       const newData = { ...state.data };
       delete newData[id];
       return { ...newState, data: newData };
+    case FETCH_ISSUE_SUCCEEDED:
+      debugger;
+      return { ...state, data: action.payload };
     default:
       return state;
   }

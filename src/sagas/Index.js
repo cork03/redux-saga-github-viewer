@@ -1,8 +1,8 @@
 import { all } from "redux-saga/effects";
-import profile from "./Profile";
+import issue from "./Issue";
 
 function* rootSaga() {
-  yield all([profile()]);
+  yield all([issue()]);
 }
 
 export default rootSaga;
