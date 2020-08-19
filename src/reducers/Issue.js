@@ -37,7 +37,6 @@ const issue = (state = initialState, action) => {
       delete newData[id];
       return { ...newState, data: newData };
     case FETCH_ISSUE_SUCCEEDED:
-      debugger;
       return { ...state, data: action.payload };
     default:
       return state;

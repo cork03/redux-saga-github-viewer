@@ -40,9 +40,6 @@ const Table = styled.table`
 `;
 
 const Issue = ({ data, removeList, addList, editList, fetchIssue }) => {
-  useEffect(() => {
-    fetchIssue();
-  });
   const [open, setOpen] = useState(false);
   const [edit, setEdit] = useState(false);
   const [search, setSearch] = useState("");
@@ -56,6 +53,9 @@ const Issue = ({ data, removeList, addList, editList, fetchIssue }) => {
     }
     return object.filter((item) => item.title.includes(search));
   };
+  useEffect(() => {
+    fetchIssue();
+  }, []);
   const openNew = () => {
     if (!edit) {
       setOpen(true);
