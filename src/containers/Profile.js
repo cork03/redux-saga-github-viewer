@@ -5,7 +5,7 @@ import { actionCreators } from "../actions/Index";
 
 const mapStateToProps = (state) => {
   return {
-    user: state.profile,
+    user: state.profile.data,
   };
 };
 

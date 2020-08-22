@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const token = process.env.REACT_APP_REDUX_SAGA_API;
+const username = process.env.REACT_APP_USER;
 
 const base = axios.create({
   baseURL: "https://api.github.com",
@@ -10,11 +11,9 @@ const base = axios.create({
   },
 });
 
-console.log(api);
-
-export const fetchList = async (payload) => {
+export const fetchList = async () => {
   try {
-    const result = await axios.get(
+    const result = await base.get(
       "https://api.github.com/repos/cork03/redux-saga-github-viewer/issues"
     );
     return result;
@@ -22,3 +21,27 @@ export const fetchList = async (payload) => {
     console.log(e);
   }
 };
+
+export const createList = async (data) => {
+  try {
+    const result = await base.post(
+      "https://api.github.com/repos/cork03/redux-saga-github-viewer/issues",
+      data
+    );
+    console.log(result);
+    return result;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const fetchProfile = async (payload) => {
+  try {
+    const result = await base.get("https://api.github.com/users/cork03");
+    return result;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+fetchProfile();

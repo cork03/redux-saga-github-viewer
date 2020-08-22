@@ -3,6 +3,7 @@ import {
   EDIT_LIST,
   REMOVE_LIST,
   FETCH_ISSUE_SUCCEEDED,
+  CREATE_ISSUE_SUCCEEDED,
 } from "../actions/Index";
 
 const initialData = {};
@@ -37,6 +38,8 @@ const issue = (state = initialState, action) => {
       delete newData[id];
       return { ...newState, data: newData };
     case FETCH_ISSUE_SUCCEEDED:
+      return { ...state, data: action.payload };
+    case CREATE_ISSUE_SUCCEEDED:
       return { ...state, data: action.payload };
     default:
       return state;

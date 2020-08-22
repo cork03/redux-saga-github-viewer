@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { colors } from "../../styles/Variables";
 
@@ -28,20 +28,31 @@ const Text = styled.p`
   font-size: 1.2rem;
 `;
 
-const Profile = ({ user }) => {
+const Profile = ({ user, fetchProfile }) => {
+  useEffect(() => {
+    fetchProfile();
+  }, []);
+  console.log(user);
   return (
     <Container>
       <h1>Profile</h1>
       <Card>
         <CardEl>
           <Label>プロフィール</Label>
-          <Img src={user.profileUrl} />
         </CardEl>
         <CardEl>
           <Label>ユーザー名</Label>
-          <Text>{user.name}</Text>
-          <Label>メールアドレス</Label>
-          <Text>{user.email}</Text>
+          <Text>{}</Text>
+          <Label>アカウントURL</Label>
+          <Text>{}</Text>
+          <Label>フォロー数</Label>
+          <Text>{}</Text>
+          <Label>フォロワー数</Label>
+          <Text>{}</Text>
+          <Label>パブリックレポジトリ</Label>
+          <Text>{}</Text>
+          <Label>プライベートレポジトリ</Label>
+          <Text>{}</Text>
         </CardEl>
       </Card>
     </Container>

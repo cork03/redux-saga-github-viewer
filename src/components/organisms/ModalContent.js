@@ -56,7 +56,7 @@ const Error = styled.div`
   }
 `;
 
-const ModalContent = ({ closeModal, addList }) => {
+const ModalContent = ({ closeModal, createIssue }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [error, setError] = useState("");
@@ -75,7 +75,8 @@ const ModalContent = ({ closeModal, addList }) => {
       setError("説明を入力してください");
       return;
     }
-    addList({ title, content });
+    createIssue();
+    debugger;
     closeModal();
   };
   return (

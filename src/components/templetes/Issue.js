@@ -39,7 +39,14 @@ const Table = styled.table`
   }
 `;
 
-const Issue = ({ data, removeList, addList, editList, fetchIssue }) => {
+const Issue = ({
+  data,
+  removeList,
+  addList,
+  editList,
+  fetchIssue,
+  createIssue,
+}) => {
   const [open, setOpen] = useState(false);
   const [edit, setEdit] = useState(false);
   const [search, setSearch] = useState("");
@@ -164,7 +171,7 @@ const Issue = ({ data, removeList, addList, editList, fetchIssue }) => {
         ) : (
           <ModalContent
             closeModal={closeModal}
-            addList={addList}
+            createIssue={createIssue}
             removeList={removeList}
           />
         )}
