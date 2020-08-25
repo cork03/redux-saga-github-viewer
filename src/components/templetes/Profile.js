@@ -11,10 +11,16 @@ const Card = styled.div`
   display: flex;
   border-radius: 6px;
   border: 1px solid #e1e4e8;
+  @media (max-width: 576px) {
+    flex-wrap: wrap;
+  }
 `;
 const CardEl = styled.div`
   width: 50%;
   padding: 16px;
+  @media (max-width: 576px) {
+    width: 100%;
+  }
 `;
 const Label = styled.label`
   color: ${colors.label};
@@ -22,6 +28,7 @@ const Label = styled.label`
 const Img = styled.img`
   display: block;
   padding-top: 15px;
+  width: 70%;
 `;
 const Text = styled.p`
   padding 16px 0;

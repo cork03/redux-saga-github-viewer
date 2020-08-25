@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { colors } from "./Variables";
 
 export const GlobalStyle = createGlobalStyle`
   html{
@@ -36,5 +37,16 @@ export const GlobalStyle = createGlobalStyle`
       right: 0 !important;
       left: 0 !important;
     }
+  }
+  .success{
+    color: white;
+    background: ${colors.success};
+  }
+  .error {
+    background: ${colors.error};
+    color: white;
+  }
+  .Toastify__close-button {
+    color: white;
   }
 `;

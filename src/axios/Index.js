@@ -18,7 +18,7 @@ export const fetchList = async () => {
     );
     return result;
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 
@@ -30,7 +30,7 @@ export const createList = async ({ data }) => {
     );
     return result;
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 export const editList = async ({ data, num }) => {
@@ -41,7 +41,7 @@ export const editList = async ({ data, num }) => {
     );
     return result;
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 
@@ -50,7 +50,7 @@ export const fetchProfile = async (payload) => {
     const result = await base.get("/users/cork03");
     return result;
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 

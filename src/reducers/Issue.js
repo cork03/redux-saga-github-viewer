@@ -3,7 +3,6 @@ import {
   EDIT_LIST,
   REMOVE_LIST,
   FETCH_ISSUE_SUCCEEDED,
-  CREATE_ISSUE_SUCCEEDED,
 } from "../actions/Index";
 
 const initialData = {};

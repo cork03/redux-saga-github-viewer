@@ -73,38 +73,39 @@ const Issue = ({ data, removeList, fetchIssue, createIssue, editIssue }) => {
       setOpen(true);
     }
   };
-  const onCheck = (id) => {
+  const onCheck = (id, el) => {
     const newCheck = { ...check };
     if (check[id]) {
       delete newCheck[id];
     } else {
-      newCheck[id] = true;
+      newCheck[id] = el;
     }
     setCheck(newCheck);
   };
   const [mark, setMark] = useState(false);
   const allCheck = () => {
-    const el = Object.values(data).map((item) => {
-      return item.id;
-    });
     const newCheck = { ...check };
     if (mark) {
       setMark(false);
       setCheck({});
     } else {
       setMark(true);
-      el.forEach((item) => {
-        newCheck[item] = true;
+      Object.values(data).forEach((item) => {
+        newCheck[item.id] = item;
       });
       setCheck(newCheck);
     }
   };
   const onRemove = () => {
-    Object.keys(check).forEach((item) => {
-      removeList({ id: item });
+    Object.values(check).forEach((item) => {
+      editIssue(
+        {
+          state: "closed",
+        },
+        item.number
+      );
     });
   };
-  console.log(data);
   return (
     <Container>
       <SerchTop>

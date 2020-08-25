@@ -1,5 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
+import moment from "moment";
 
 const List = ({ list, onClick, check, onCheck }) => {
   const { title, state, user, created_at } = list;
@@ -8,9 +9,12 @@ const List = ({ list, onClick, check, onCheck }) => {
   };
   const _onCheck = (e) => {
     e.stopPropagation();
-    onCheck && onCheck(list.id);
+    onCheck && onCheck(list.id, list);
   };
   const Link = (e) => e.stopPropagation();
+  const m = moment(created_at, "YYYY - MM - DD");
+  const output = m.format("MM - DD - YYYY");
+
   return (
     <tr onClick={_onClick}>
       <td>
@@ -23,7 +27,7 @@ const List = ({ list, onClick, check, onCheck }) => {
       </td>
       <td>{state}</td>
       <td>{user.login}</td>
-      <td>{created_at}</td>
+      <td>{output}</td>
       <td>{dayjs().format("MM-DD-YYYY")}</td>
     </tr>
   );

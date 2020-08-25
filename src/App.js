@@ -7,6 +7,8 @@ import TopPage from "./pages/Index";
 import Issue from "./pages/Issue";
 import Profile from "./pages/Profile";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const Container = styled.div``;
 const Main = styled.div`
@@ -37,6 +39,7 @@ const App = () => {
             </Route>
           </Switch>
         </Main>
+        <ToastContainer />
       </Container>
     </Router>
   );
