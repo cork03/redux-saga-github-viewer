@@ -62,7 +62,7 @@ const StatusLabel = styled.label`
   display: block;
   margin-bottom: 7px;
 `;
-const EditContent = ({ closeModal, issue, editList }) => {
+const EditContent = ({ closeModal, issue, editIssue }) => {
   const [title, setTitle] = useState(issue.title);
   const [content, setContent] = useState(issue.body);
   const [status, setStatus] = useState(issue.state);
@@ -85,7 +85,14 @@ const EditContent = ({ closeModal, issue, editList }) => {
       setError("説明を入力してください");
       return;
     }
-    editList({ title, content, status, id: issue.id, creator: issue.creator });
+    editIssue(
+      {
+        title,
+        body: content,
+        state: status,
+      },
+      issue.number
+    );
     closeModal();
   };
   return (
@@ -111,8 +118,8 @@ const EditContent = ({ closeModal, issue, editList }) => {
       <Status>
         <StatusLabel>ステータス</StatusLabel>
         <select value={status} onChange={changeStatus}>
-          <option value="Open">Open</option>
-          <option value="Close">Close</option>
+          <option value="open">Open</option>
+          <option value="close">Close</option>
         </select>
       </Status>
       <Error>{error && <p>{error}</p>}</Error>

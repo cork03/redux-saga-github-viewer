@@ -14,7 +14,7 @@ const base = axios.create({
 export const fetchList = async () => {
   try {
     const result = await base.get(
-      "https://api.github.com/repos/cork03/redux-saga-github-viewer/issues"
+      "/repos/cork03/redux-saga-github-viewer/issues"
     );
     return result;
   } catch (e) {
@@ -22,13 +22,23 @@ export const fetchList = async () => {
   }
 };
 
-export const createList = async (data) => {
+export const createList = async ({ data }) => {
   try {
     const result = await base.post(
-      "https://api.github.com/repos/cork03/redux-saga-github-viewer/issues",
+      "/repos/cork03/redux-saga-github-viewer/issues",
       data
     );
-    console.log(result);
+    return result;
+  } catch (e) {
+    console.log(e);
+  }
+};
+export const editList = async ({ data, num }) => {
+  try {
+    const result = await base.post(
+      `/repos/cork03/redux-saga-github-viewer/issues/${num}`,
+      data
+    );
     return result;
   } catch (e) {
     console.log(e);
@@ -37,7 +47,7 @@ export const createList = async (data) => {
 
 export const fetchProfile = async (payload) => {
   try {
-    const result = await base.get("https://api.github.com/users/cork03");
+    const result = await base.get("/users/cork03");
     return result;
   } catch (e) {
     console.log(e);

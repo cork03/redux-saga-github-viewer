@@ -75,8 +75,12 @@ const ModalContent = ({ closeModal, createIssue }) => {
       setError("説明を入力してください");
       return;
     }
-    createIssue();
-    debugger;
+    createIssue({
+      data: {
+        title,
+        body: content,
+      },
+    });
     closeModal();
   };
   return (

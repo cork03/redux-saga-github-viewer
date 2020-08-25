@@ -33,26 +33,32 @@ const Profile = ({ user, fetchProfile }) => {
     fetchProfile();
   }, []);
   console.log(user);
+  if (!user) {
+    return <></>;
+  }
   return (
     <Container>
       <h1>Profile</h1>
       <Card>
         <CardEl>
           <Label>プロフィール</Label>
+          <Img src={user.avatar_url}></Img>
         </CardEl>
         <CardEl>
           <Label>ユーザー名</Label>
-          <Text>{}</Text>
+          <Text>{user.login}</Text>
           <Label>アカウントURL</Label>
-          <Text>{}</Text>
+          <Text>
+            <a href={user.html_url}>{user.html_url}</a>
+          </Text>
           <Label>フォロー数</Label>
-          <Text>{}</Text>
+          <Text>{user.following}</Text>
           <Label>フォロワー数</Label>
-          <Text>{}</Text>
+          <Text>{user.followers}</Text>
           <Label>パブリックレポジトリ</Label>
-          <Text>{}</Text>
+          <Text>{user.public_repos}</Text>
           <Label>プライベートレポジトリ</Label>
-          <Text>{}</Text>
+          <Text>{user.owned_private_repos}</Text>
         </CardEl>
       </Card>
     </Container>

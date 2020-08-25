@@ -39,8 +39,6 @@ const issue = (state = initialState, action) => {
       return { ...newState, data: newData };
     case FETCH_ISSUE_SUCCEEDED:
       return { ...state, data: action.payload };
-    case CREATE_ISSUE_SUCCEEDED:
-      return { ...state, data: action.payload };
     default:
       return state;
   }

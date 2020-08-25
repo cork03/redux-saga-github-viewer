@@ -39,14 +39,7 @@ const Table = styled.table`
   }
 `;
 
-const Issue = ({
-  data,
-  removeList,
-  addList,
-  editList,
-  fetchIssue,
-  createIssue,
-}) => {
+const Issue = ({ data, removeList, fetchIssue, createIssue, editIssue }) => {
   const [open, setOpen] = useState(false);
   const [edit, setEdit] = useState(false);
   const [search, setSearch] = useState("");
@@ -111,6 +104,7 @@ const Issue = ({
       removeList({ id: item });
     });
   };
+  console.log(data);
   return (
     <Container>
       <SerchTop>
@@ -166,7 +160,7 @@ const Issue = ({
           <EditContent
             issue={issue}
             closeModal={closeModal}
-            editList={editList}
+            editIssue={editIssue}
           />
         ) : (
           <ModalContent

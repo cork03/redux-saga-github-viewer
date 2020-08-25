@@ -38,8 +38,8 @@ export const EDIT_ISSUE_REQUESTED = "EDIT_ISSUE_REQUESTED";
 export const EDIT_ISSUE_SUCCEEDED = "EDIT_ISSUE_SUCCEEDED";
 export const EDIT_ISSUE_FAILED = "EDIT_ISSUE_FAILED";
 
-export const editIssue = (payload) => {
-  return { type: EDIT_ISSUE_REQUESTED, payload };
+export const editIssue = (payload, number) => {
+  return { type: EDIT_ISSUE_REQUESTED, payload, number };
 };
 
 // for fetchProfile
@@ -55,8 +55,8 @@ export const fetchProfile = (payload) => {
 export const actionCreators = {
   addList,
   removeList,
-  editList,
   fetchIssue,
   fetchProfile,
+  createIssue,
   editIssue,
 };
