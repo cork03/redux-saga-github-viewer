@@ -24,6 +24,7 @@ function* fetchIssueLIst(action) {
     yield put({ type: actions.FETCH_ISSUE_SUCCEEDED, payload: data });
   } catch (e) {
     yield put({ type: actions.FETCH_ISSUE_FAILED, message: e.message });
+    error("一覧の取得に失敗しました");
   }
 }
 
